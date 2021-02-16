@@ -23,7 +23,7 @@ export class HomePage implements OnInit {
   }
 
   login() {
-    this.navCtrl.navigateForward('numeros');
+    this.navCtrl.navigateForward('sorteios');
   }
 
 

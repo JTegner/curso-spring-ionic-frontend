@@ -1,28 +1,26 @@
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'folder/Inbox',
+    redirectTo: 'home',
     pathMatch: 'full'
-  },
-  {
-    path: 'folder/:id',
-    loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
   },
   {
     path: 'home',
     loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
   },
   {
-    path: 'numeros',
-    loadChildren: () => import('./pages/numeros/numeros.module').then( m => m.NumerosPageModule)
+    path: 'sorteios',
+    loadChildren: () => import('./pages/sorteios/sorteios.module').then( m => m.SorteiosPageModule)
   }
 ];
 
 @NgModule({
   imports: [
+    HttpClientModule,
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
   ],
   exports: [RouterModule]
